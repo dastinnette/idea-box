@@ -12,6 +12,10 @@ feature "User signs up" do
     click_on "Sign up"
 
     expect(current_path).to eq('/profile')
+
+    within ".profile-info" do
+      expect(page).to have_content("david")
+    end
   end
 
 end
