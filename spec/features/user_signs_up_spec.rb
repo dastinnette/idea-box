@@ -4,7 +4,7 @@ feature "User signs up" do
 
   scenario "with valid attributes" do
     visit "/signup"
-    expect (current_path).to eq('/signup')
+    expect(current_path).to eq('/signup')
   end
 
 end
