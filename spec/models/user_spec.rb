@@ -34,7 +34,12 @@ RSpec.describe User, type: :model do
   end
 
   it "cannot create a user with non-letter characters" do
-    result = User.new(name: "daivd1", email: "david@example.com", password: "password")
+    result = User.new(name: "david1", email: "david@example.com", password: "password")
+    expect(result).to be_invalid
+  end
+
+  it "only accepts email addresses between 5 and 50 characters" do
+    result = User.new(name: "david", email: "d@a.", password: "password")
     expect(result).to be_invalid
   end
 
