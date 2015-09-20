@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
 
-  def index
-    render
-
   def new
     @user = User.new
   end

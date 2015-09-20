@@ -33,4 +33,9 @@ RSpec.describe User, type: :model do
     expect(result.count).to eq(1)
   end
 
+  it "cannot create a user with non-letter characters" do
+    result = User.new(name: "daivd1", email: "david@example.com", password: "password")
+    expect(result).to be_invalid
+  end
+
 end
