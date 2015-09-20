@@ -16,4 +16,9 @@ RSpec.describe User, type: :model do
     expect(result.password).to eq("password")
   end
 
+  it "cannot create a user without a name" do
+    result = User.new(email: "david@example.com")
+    expect(result).to be_invalid
+  end
+
 end
