@@ -26,4 +26,11 @@ RSpec.describe User, type: :model do
     expect(result).to be_invalid
   end
 
+  it "cannot create a user with the same email" do
+    2.times { User.create(valid_attributes) }
+
+    result = User.where(email: "david@example.com")
+    expect(result.count).to eq(1)
+  end
+
 end
